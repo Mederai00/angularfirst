@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-footer"></div>
+  <div class="card-body">
+    <table class="table table-hover table-striped">
+      <thead>
+        <th>Ref</th>
+        <th>Total</th>
+        <th>Total Paye</th>
+        <th>Operation</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of commandes">
+          <td>{{ c.reference }}</td>
+          <td>{{ c.total }}</td>
+          <td>{{ c.totalPaye }}</td>
+          <td><button class="btn-danger fa fa-trash" (click)="deleteByReference(c)"></button></td>
+          <button class="btn btn-danger btn-sm fa fa-plus" (click)="findCommandeItemByCommandeReference(c)"></button>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

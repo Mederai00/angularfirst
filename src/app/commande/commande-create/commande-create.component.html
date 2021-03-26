@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-header"></div>
+
+  <div class="card-body">
+    <div class="form-group">
+      <label>Ref</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="commande.reference"
+      />
+    </div>
+
+  </div>
+  <div class="card">
+    <div class="card-header">Ajouter un Produit</div>
+    <div class="card-body">
+    <div class="row">
+      <div class="col-md-6">
+        <label>Produit</label>
+        <input type="text" class="form-control" [(ngModel)]="commandeItem.produit">
+      </div>
+      <div class="col-md-6">
+        <label>Prix</label>
+        <input type="number" class="form-control" [(ngModel)]="commandeItem.prix">
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-md-6">
+        <label>Qte</label>
+        <input type="number" class="form-control" [(ngModel)]="commandeItem.qte">
+      </div>
+    </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-block btn-danger" (click)="addCommandeItem()">Add</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">Liste des Produits</div>
+    <div class="card-body">
+      <table class="table table-hover table-striped">
+        <thead>
+        <th>Produit</th>
+        <th>Prix</th>
+        <th>Qte</th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of commande.commandeItems">
+          <td>{{c.produit}}</td>
+          <td>{{c.prix}}</td>
+          <td>{{c.qte}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-footer">
+      Total : {{ commande.total }}
+    </div>
+  </div>
+<div class="card-footer">
+  <button class="btn btn-outline-dark btn-block btn-success" (click)="save()" [disabled]="validateSave()">
+    Save
+  </button>
+</div>
+
